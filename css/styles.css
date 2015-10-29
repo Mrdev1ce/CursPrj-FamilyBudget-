@@ -144,3 +144,11 @@ p {
   border-bottom-color: #34a853;
   margin-bottom: 2px;
 }
+.all-accounts > .account > p {
+  margin-bottom: 0;
+}
+.right-corner-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
