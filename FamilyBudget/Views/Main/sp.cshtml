@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="App">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>sp</title>
+
+    <link href="~/app/libs/bootstrap/css/bootstrap-paper.css" rel="stylesheet" />
+</head>
+<body>
+<div>
+    <div ui-view></div>
+</div>
+    <!--Libs-->
+    <script src="~/app/libs/angular/angular.js"></script>
+    <script src="~/app/libs/angular/angular-ui-router.js"></script>
+
+    <!--Configs-->
+    <script src="~/app/src/app.js"></script>
+    <script src="~/app/src/config/routes.js"></script>
+
+    <!--Controllers-->
+    <script src="~/app/src/pages/home/homeCtrl.js"></script>
+</body>
+</html>
