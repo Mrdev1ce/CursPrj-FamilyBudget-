@@ -40,9 +40,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -134,6 +131,7 @@
     <Content Include="app\src\app.js" />
     <Content Include="app\src\common\css\controls.css" />
     <Content Include="app\src\common\css\fonts.css" />
+    <Content Include="Content\Styles\login-page.css" />
     <Content Include="app\src\common\css\styles.css" />
     <Content Include="app\src\common\img\ginger-beard-guy.jpg" />
     <Content Include="app\src\common\tmp-views\index.html" />
@@ -147,6 +145,7 @@
     <Content Include="app\libs\bootstrap\css\bootstrap.css" />
     <Content Include="app\libs\bootstrap\css\bootstrap.min.css" />
     <Content Include="app\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\bg.jpg" />
     <Content Include="Global.asax" />
     <Content Include="app\libs\angular\angular-mocks.js" />
     <Content Include="app\libs\angular\angular-ui-router.js" />
@@ -164,6 +163,11 @@
     <None Include="app\libs\jQuery\jquery-2.1.4.intellisense.js" />
     <Content Include="app\libs\jQuery\jquery-2.1.4.js" />
     <Content Include="app\libs\jQuery\jquery-2.1.4.min.js" />
+    <None Include="app\libs\jQuery\jquery.validate-vsdoc.js" />
+    <Content Include="app\libs\jQuery\jquery.validate.js" />
+    <Content Include="app\libs\jQuery\jquery.validate.min.js" />
+    <Content Include="app\libs\jQuery\jquery.validate.unobtrusive.js" />
+    <Content Include="app\libs\jQuery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -186,10 +190,11 @@
     <Content Include="app\src\common\fonts\RobotoRegular\RobotoRegular.ttf" />
     <Content Include="app\src\common\fonts\RobotoRegular\RobotoRegular.woff" />
     <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Auth\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
+    <Folder Include="Content\NewFolder1\" />
     <Folder Include="fonts\" />
     <Folder Include="Scripts\" />
   </ItemGroup>

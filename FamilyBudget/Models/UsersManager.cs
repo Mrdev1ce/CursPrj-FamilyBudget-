@@ -33,5 +33,20 @@ namespace FamilyBudget.Models
             }
             return null;
         }
+
+        public static void AddUser(User user)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("AddUser", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@Login", user.Login);
+                command.Parameters.AddWithValue("@Password", user.Password);
+                command.Parameters.AddWithValue("@Mail", user.Mail);
+                command.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            
+        }
     }
 }

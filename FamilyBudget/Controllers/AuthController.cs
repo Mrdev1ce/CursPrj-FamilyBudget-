@@ -23,24 +23,24 @@ namespace FamilyBudget.Controllers
             {
                 return View();
             }
-            return RedirectToAction("sp", "Main");
+            return RedirectToAction("sp", "main");
         }
 
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login", "Auth");
+            return RedirectToAction("login", "auth");
         }
 
         [HttpPost]
-        public ActionResult Login(string userLogin, string userPassword, bool isRemember = false)
+        public ActionResult Login(User user)
         {
-            if (!string.IsNullOrWhiteSpace(userLogin) || !string.IsNullOrWhiteSpace(userPassword))
+            if (!string.IsNullOrWhiteSpace(user.Login) || !string.IsNullOrWhiteSpace(user.Password))
             {
                 //password = Security.GetHashString(password);
-                if (LoginModel.IsLoginSuccess(userLogin, userPassword))
+                if (LoginModel.IsLoginSuccess(user.Login, user.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(userLogin, isRemember);
+                    FormsAuthentication.SetAuthCookie(user.Login, user.IsRemember);
                 }
                 else
                 {
@@ -48,7 +48,25 @@ namespace FamilyBudget.Controllers
                     return View();
                 }
             }
-            return RedirectToAction("sp", "Main");
+            return RedirectToAction("sp", "main");
+        }
+
+        [HttpGet]
+        public ActionResult Registration()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Registration(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                UsersManager.AddUser(user);
+                return RedirectToAction("sp", "main");
+            }
+
+            return View();
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
+@using FamilyBudget.Models
+@model User
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -12,72 +12,59 @@
     <link href="~/app/libs/bootstrap/css/bootstrap-paper.css" rel="stylesheet" />
     <link href="~/app/src/common/css/fonts.css" rel="stylesheet" />
     <link href="~/app/src/common/css/controls.css" rel="stylesheet" />
-    <link href="~/app/src/common/css/styles.css" rel="stylesheet" />
+    <link href="~/Content/Styles/login-page.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="layout">
-        <div class="left-menu">
-            <div class="user-card">
-                <img src="~/app/src/common/img/ginger-beard-guy.jpg" class="user-avatar" />
-                <div class="user-login">
-                    mylogin@epam.com
-                </div>
+
+<div class="layout">
+    <div class="login-wrap">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Error!</strong> @ViewBag.ErrorMessage
             </div>
-            <nav class="nav-panel">
-                <a href="#" class="nav-item">Home</a>
-                <a href="#" class="nav-item">Accounts</a>
-                <a href="#" class="nav-item">One more item</a>
-            </nav>
-        </div>
-        <main class="main">
-            <header class="header">
-                <span class="title">Home</span>
-            </header>
-            <div id="content" class="content">
-                <div class="login-wrap">
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-horizontal">
-                            @if (ViewBag.ErrorMessage != null)
-                            {
-                                <div class="alert alert-danger alert-dismissible" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <strong>Error!</strong> @ViewBag.ErrorMessage
-                                </div>
-                            }
-                            <fieldset>
-                                <legend>Autorization</legend>
-                                <div class="form-group">
-                                    <label for="inputLogin" class="col-xs-3 control-label">Login</label>
-                                    <div class="col-xs-9">
-                                        <input type="text" name="userLogin" class="form-control" id="inputLogin" placeholder="Login">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword" class="col-xs-3 control-label">Password</label>
-                                    <div class="col-xs-9">
-                                        <input type="password" name="userPassword" class="form-control" id="inputPassword" placeholder="Password">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input name="isRemember" type="checkbox"> Remember me
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix">
-                                    <button class="btn btn-primary pull-right">Sign In</button>
-                                </div>
-                                <p class="text-center">
-                                    Don't have an account?
-                                    <a href="#">Registrer now!</a>
-                                </p>
-                            </fieldset>
+        }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <fieldset>
+                    <legend>Autorization</legend>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-xs-3" })
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(model => model.Login, new { @class = "form-control col-xs-9" })
+                            @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
                         </div>
-                    }
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-xs-3 control-label">Password</label>
+                        <div class="col-xs-9">
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            <div class="checkbox">
+                                <label>
+                                    @Html.CheckBoxFor(model => model.IsRemember) Remember me
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <button class="btn btn-primary pull-right">Sign In</button>
+                    </div>
+                    <p class="text-center">
+                        Don't have an account?
+                        @Html.ActionLink("Register now!", "registration")
+                    </p>
+                </fieldset>
             </div>
-        </main>
+        }
     </div>
+</div>
+    <script src="~/app/libs/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="~/app/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/app/libs/jQuery/jquery.validate.min.js"></script>
+    <script src="~/app/libs/jQuery/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>
