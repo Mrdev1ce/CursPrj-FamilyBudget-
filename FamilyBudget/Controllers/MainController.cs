@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace FamilyBudget.Controllers
 {
+    [Authorize]
     public class MainController : Controller
     {
         //

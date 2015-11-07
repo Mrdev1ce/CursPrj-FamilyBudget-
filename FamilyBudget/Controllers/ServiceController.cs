@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FamilyBudget.Models;
 
 namespace FamilyBudget.Controllers
 {
@@ -11,9 +12,12 @@ namespace FamilyBudget.Controllers
         //
         // GET: /Service/
         [HttpGet]
-        public JsonResult Test()
+        public JsonResult GetUserInfo()
         {
-            return Json(new { someData = "123"}, JsonRequestBehavior.AllowGet);
+            return Json(new
+            {
+                Login = User.Identity.Name
+            }, JsonRequestBehavior.AllowGet);
         }
 
     }

@@ -10,11 +10,13 @@
     <title>sp</title>
 
     <link href="~/app/libs/bootstrap/css/bootstrap-paper.css" rel="stylesheet" />
+    <link href="~/app/src/common/css/fonts.css" rel="stylesheet" />
+    <link href="~/app/src/common/css/controls.css" rel="stylesheet" />
+    <link href="~/app/src/common/css/styles.css" rel="stylesheet" />
 </head>
 <body>
-<div>
-    <div ui-view></div>
-</div>
+<div ui-view></div>
+
     <!--Libs-->
     <script src="~/app/libs/angular/angular.js"></script>
     <script src="~/app/libs/angular/angular-ui-router.js"></script>
@@ -24,6 +26,10 @@
     <script src="~/app/src/config/routes.js"></script>
 
     <!--Controllers-->
-    <script src="~/app/src/pages/home/homeCtrl.js"></script>
+    <script src="~/app/src/pages/home/home-ctrl.js"></script>
+    <script src="~/app/src/pages/main/main-ctrl.js"></script>
+
+    <!--Services-->
+    <script src="~/app/src/services/user.js"></script>
 </body>
 </html>

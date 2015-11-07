@@ -17,6 +17,7 @@ namespace FamilyBudget.Controllers
         //
         // GET: /Auth/
 
+        [HttpGet]
         public ActionResult Login()
         {
             if (!User.Identity.IsAuthenticated)

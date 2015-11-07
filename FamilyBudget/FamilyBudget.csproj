@@ -115,7 +115,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\CustomRoleProvider.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Security.cs" />
@@ -131,6 +130,9 @@
     <Content Include="app\src\app.js" />
     <Content Include="app\src\common\css\controls.css" />
     <Content Include="app\src\common\css\fonts.css" />
+    <Content Include="app\src\pages\main\main-ctrl.js" />
+    <Content Include="app\src\pages\main\main.html" />
+    <Content Include="app\src\services\user.js" />
     <Content Include="Content\Styles\login-page.css" />
     <Content Include="app\src\common\css\styles.css" />
     <Content Include="app\src\common\img\ginger-beard-guy.jpg" />
@@ -139,7 +141,7 @@
     <Content Include="app\src\common\tmp-views\login-registration.html" />
     <Content Include="app\src\config\routes.js" />
     <Content Include="app\src\pages\home\home.html" />
-    <Content Include="app\src\pages\home\homeCtrl.js" />
+    <Content Include="app\src\pages\home\home-ctrl.js" />
     <Content Include="app\libs\bootstrap\css\bootstrap-theme.css" />
     <Content Include="app\libs\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="app\libs\bootstrap\css\bootstrap.css" />
