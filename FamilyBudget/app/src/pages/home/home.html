@@ -2,22 +2,14 @@
     <div class="content-card">
         <div class="sum-back">
             <p class="account-title">Total on accounts:</p>
-            <p class="sum">20500 RUB</p>
+            <p class="sum">{{totalFunds}} RUB</p>
         </div>
     </div>
     <div class="content-card">
         <div class="all-accounts">
-            <div class="account">
-                <p>Cash</p>
-                <p>3000 RUB</p>
-            </div>
-            <div class="account">
-                <p>Bank account</p>
-                <p>120000 RUB</p>
-            </div>
-            <div class="account">
-                <p>Credit card</p>
-                <p>28000 RUB</p>
+            <div ng-repeat="wallet in wallets track by $index" class="account">
+                <p>{{wallet.Name}}</p>
+                <p>{{wallet.Funds}} RUB</p>
             </div>
         </div>
     </div>

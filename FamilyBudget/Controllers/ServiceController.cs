@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FamilyBudget.Models;
+using Newtonsoft.Json;
 
 namespace FamilyBudget.Controllers
 {
+    [Authorize]
     public class ServiceController : Controller
     {
         //
@@ -18,6 +20,15 @@ namespace FamilyBudget.Controllers
             {
                 Login = User.Identity.Name
             }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetUserWallets()
+        {
+            
+            var userLogin = User.Identity.Name;
+            var wallets = WalletsManager.GetWalletsByLogin(userLogin);
+            return Json(wallets, JsonRequestBehavior.AllowGet);
         }
 
     }

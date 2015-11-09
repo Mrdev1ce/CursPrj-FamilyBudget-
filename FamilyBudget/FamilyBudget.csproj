@@ -123,6 +123,8 @@
     <Compile Include="Models\Security.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UsersManager.cs" />
+    <Compile Include="Models\Wallet.cs" />
+    <Compile Include="Models\WalletsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +138,7 @@
     <Content Include="app\src\pages\main\main-ctrl.js" />
     <Content Include="app\src\pages\main\main.html" />
     <Content Include="app\src\services\user.js" />
+    <Content Include="app\src\services\wallets.js" />
     <Content Include="Content\Styles\login-page.css" />
     <Content Include="app\src\common\css\styles.css" />
     <Content Include="app\src\common\img\ginger-beard-guy.jpg" />
@@ -173,6 +176,8 @@
     <Content Include="app\libs\jQuery\jquery.validate.min.js" />
     <Content Include="app\libs\jQuery\jquery.validate.unobtrusive.js" />
     <Content Include="app\libs\jQuery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\libs\lodash\lodash.js" />
+    <Content Include="app\libs\lodash\lodash.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -199,7 +204,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\NewFolder1\" />
     <Folder Include="fonts\" />
     <Folder Include="Scripts\" />
   </ItemGroup>

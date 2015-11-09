@@ -10,8 +10,8 @@
             resolve: {
                 userInfo: [
                     'User', '$q',
-                    function (User, $q) {
-                        return $q.when(User.getUserInfo());
+                    function (User) {
+                        return User.getUserInfo();
                     }
                 ]
             }
@@ -21,7 +21,15 @@
             parent: 'main',
             url: 'home',
             controller: 'HomeCtrl',
-            templateUrl: '../app/src/pages/home/home.html'
+            templateUrl: '../app/src/pages/home/home.html',
+            resolve: {
+                wallets: [
+                    'Wallets', '$q',
+                    function (Wallets) {
+                        return Wallets.getUserWallets();
+                    }
+                ]
+            }
         }
     });
 })();
