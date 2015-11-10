@@ -9,7 +9,7 @@
             templateUrl: '../app/src/pages/main/main.html',
             resolve: {
                 userInfo: [
-                    'User', '$q',
+                    'User',
                     function (User) {
                         return User.getUserInfo();
                     }
@@ -24,9 +24,15 @@
             templateUrl: '../app/src/pages/home/home.html',
             resolve: {
                 wallets: [
-                    'Wallets', '$q',
+                    'Wallets',
                     function (Wallets) {
                         return Wallets.getUserWallets();
+                    }
+                ],
+                operations: [
+                    'Operations',
+                    function (Operations) {
+                        return Operations.getUserOperations();
                     }
                 ]
             }

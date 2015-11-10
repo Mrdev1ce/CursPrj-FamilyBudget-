@@ -88,6 +88,11 @@ p {
   color: #FFFFFF;
   opacity: 1;
 }
+.nav-item.active {
+  background: #00BCD4;
+  color: #FFFFFF;
+  opacity: 1;
+}
 
 /*-------------------------------------------*/
 
@@ -109,7 +114,7 @@ p {
   display: flex;
   flex-direction: column;
 }
-.content > .content-wrap {
+.content .content-wrap {
   max-width: 1080px;
   width: 100%;
   margin: auto;

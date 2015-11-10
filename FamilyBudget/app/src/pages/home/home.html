@@ -18,53 +18,24 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Column heading</th>
-                    <th>Column heading</th>
-                    <th>Column heading</th>
+                    <th>Account</th>
+                    <th>Sum</th>
+                    <th>Category</th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="info">
-                    <td>3</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="success">
-                    <td>4</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="danger">
-                    <td>5</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="warning">
-                    <td>6</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <td>7</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
+                <tr ng-repeat="operation in operations track by $index"
+                    ng-class="{'danger': !operation.Type, 'success': operation.Type}">
+                    <td>{{$index+1}}</td>
+                    <td>{{operation.WalletName}}</td>
+                    <td>
+                        <span ng-if="operation.Type">+</span>
+                        <span ng-if="!operation.Type">-</span>
+                        {{operation.Sum}} RUB
+                    </td>
+                    <td>{{operation.CategoryName}}</td>
+                    <td>{{operation.Date | date: 'dd-MM-yyyy'}}</td>
                 </tr>
             </tbody>
         </table>

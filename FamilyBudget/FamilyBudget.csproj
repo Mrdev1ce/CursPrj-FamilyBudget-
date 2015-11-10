@@ -120,6 +120,8 @@
     </Compile>
     <Compile Include="Models\CustomRoleProvider.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\Operation.cs" />
+    <Compile Include="Models\OperationsManager.cs" />
     <Compile Include="Models\Security.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UsersManager.cs" />
@@ -137,6 +139,7 @@
     <Content Include="app\src\common\css\fonts.css" />
     <Content Include="app\src\pages\main\main-ctrl.js" />
     <Content Include="app\src\pages\main\main.html" />
+    <Content Include="app\src\services\operations.js" />
     <Content Include="app\src\services\user.js" />
     <Content Include="app\src\services\wallets.js" />
     <Content Include="Content\Styles\login-page.css" />
