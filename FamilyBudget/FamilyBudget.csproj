@@ -137,6 +137,9 @@
     <Content Include="app\src\app.js" />
     <Content Include="app\src\common\css\controls.css" />
     <Content Include="app\src\common\css\fonts.css" />
+    <Content Include="app\src\directives\btn-add\btn-add.css" />
+    <Content Include="app\src\directives\btn-add\btn-add.html" />
+    <Content Include="app\src\directives\btn-add\btn-add.js" />
     <Content Include="app\src\pages\main\main-ctrl.js" />
     <Content Include="app\src\pages\main\main.html" />
     <Content Include="app\src\services\operations.js" />
@@ -181,6 +184,8 @@
     <Content Include="app\libs\jQuery\jquery.validate.unobtrusive.min.js" />
     <Content Include="app\libs\lodash\lodash.js" />
     <Content Include="app\libs\lodash\lodash.min.js" />
+    <Content Include="app\libs\angular\angular-animate.js" />
+    <Content Include="app\libs\angular\angular-animate.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -204,6 +209,7 @@
     <Content Include="app\src\common\fonts\RobotoRegular\RobotoRegular.woff" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Registration.cshtml" />
+    <Content Include="app\libs\angular\angular-animate.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
