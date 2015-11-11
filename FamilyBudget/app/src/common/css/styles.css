@@ -148,6 +148,7 @@ p {
   border-bottom: 3px solid;
   border-bottom-color: #34a853;
   margin-bottom: 2px;
+  cursor: pointer;
 }
 .all-accounts > .account > p {
   margin-bottom: 0;

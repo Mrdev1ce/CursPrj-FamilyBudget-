@@ -8,6 +8,7 @@
         $urlRouterProvider.when('/', '/home');
         $stateProvider.state(Routes.MainRoute);
         $stateProvider.state(Routes.HomeRoute);
+        $stateProvider.state(Routes.WalletDetailsRoute);
     });
 })();
 

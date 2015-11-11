@@ -31,11 +31,34 @@ namespace FamilyBudget.Controllers
         }
 
         [HttpGet]
+        public JsonResult GetUserWalletByID(int? walletID)
+        {
+            if (walletID != null && walletID >= 0) 
+            {
+                var userLogin = User.Identity.Name;
+                var wallet = WalletsManager.GetWalletsByLoginAndID(userLogin, (int)walletID);
+                return Json(wallet, JsonRequestBehavior.AllowGet);
+            }
+            return null;
+        }
+
+        [HttpGet]
         public JsonResult GetOperationsByLogin()
         {
             var userLogin = User.Identity.Name;
             var operations = OperationsManager.GetOperationsByLogin(userLogin);
             return Json(operations, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetOperationsByWalletID(int? walletID)
+        {
+            if (walletID != null && walletID >= 0) 
+            {
+                var operations = OperationsManager.GetOperationsByWalletsID((int)walletID);
+                return Json(operations, JsonRequestBehavior.AllowGet);
+            }
+            return null;
         }
 
     }

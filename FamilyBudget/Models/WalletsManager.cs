@@ -31,5 +31,26 @@ namespace FamilyBudget.Models
             }
             return wallets;
         }
+
+        public static Wallet GetWalletsByLoginAndID(string userLogin, int walletID)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("GetWalletByLoginAndID", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                command.Parameters.AddWithValue("@walletID", walletID);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = (int)reader["ID"];
+                    string name = (string)reader["Name"];
+                    int funds = (int)reader["Funds"];
+                    int ownerID = (int)reader["OwnerID"];
+                    return new Wallet() { ID = id, Name = name, Funds = funds, OwnerID = ownerID };
+                }
+            }
+            return null;
+        }
     }
 }

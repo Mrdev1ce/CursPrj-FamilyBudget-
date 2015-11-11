@@ -7,9 +7,18 @@
 
     function wallets($http) {
         this.getUserWallets = getUserWallets;
+        this.getUserWalletsByID = getUserWalletsByID;
 
         function getUserWallets() {
             return $http.get('/service/getuserwallets');
+        }
+
+        function getUserWalletsByID(id) {
+            return $http({
+                url: '/service/GetUserWalletByID', 
+                method: 'GET',
+                params: { walletID: id }
+            });
         }
     }
 })();

@@ -34,5 +34,28 @@ namespace FamilyBudget.Models
             }
             return operations;
         }
+
+        public static List<Operation> GetOperationsByWalletsID(int walletID)
+        {
+            var operations = new List<Operation>();
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("GetOperationsByWalletID", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@WalletID", walletID);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = (int)reader["ID"];
+                    int walletId = (int)reader["WalletID"];
+                    bool type = (bool)reader["Type"];
+                    int sum = (int)reader["Sum"];
+                    DateTime date = (DateTime)reader["Date"];
+                    string categoryName = (string)reader["CategoryName"];
+                    operations.Add(new Operation() { ID = id, WalletID = walletId, Type = type, Sum = sum, Date = date, CategoryName = categoryName });
+                }
+            }
+            return operations;
+        }
     }
 }

@@ -36,6 +36,27 @@
                     }
                 ]
             }
+        },
+        WalletDetailsRoute: {
+            name: 'walletDetails',
+            parent: 'main',
+            url: 'wallet-details/{id:[0-9]+}',
+            controller: 'WalletDetailsCtrl',
+            templateUrl: '../app/src/pages/wallet-details/wallet-details.html',
+            resolve: {
+                wallet: [
+                    'Wallets', '$stateParams',
+                    function (Wallets, $stateParams) {
+                        return Wallets.getUserWalletsByID(+$stateParams.id);
+                    }
+                ],
+                operations: [
+                    'Operations', '$stateParams',
+                    function (Operations, $stateParams) {
+                        return Operations.getOperationsByWalletID(+$stateParams.id);
+                    }
+                ]
+            }
         }
     });
 })();
