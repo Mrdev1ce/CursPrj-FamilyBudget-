@@ -142,6 +142,9 @@
     <Content Include="app\src\directives\btn-add\btn-add.js" />
     <Content Include="app\src\pages\main\main-ctrl.js" />
     <Content Include="app\src\pages\main\main.html" />
+    <Content Include="app\src\pages\manage-data\manage-data.css" />
+    <Content Include="app\src\pages\manage-data\manage-data.html" />
+    <Content Include="app\src\pages\manage-data\manage-data.js" />
     <Content Include="app\src\pages\wallet-details\wallet-details.html" />
     <Content Include="app\src\pages\wallet-details\wallet-details.js" />
     <Content Include="app\src\pages\wallet-edit\wallet-edit.html" />

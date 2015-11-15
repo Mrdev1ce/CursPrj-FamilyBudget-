@@ -12,6 +12,7 @@
         $stateProvider.state(Routes.HomeRoute);
         $stateProvider.state(Routes.WalletDetailsRoute);
         $stateProvider.state(Routes.WalletEditRoute);
+        $stateProvider.state(Routes.ManageDataRoute);
     });
 })();
 

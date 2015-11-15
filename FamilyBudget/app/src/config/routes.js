@@ -64,6 +64,13 @@
             url: 'wallet-edit/{id:[0-9]+|new}',
             controller: 'WalletEditCtrl',
             templateUrl: '../app/src/pages/wallet-edit/wallet-edit.html'
+        },
+        ManageDataRoute: {
+            name: 'manageData',
+            parent: 'main',
+            url: 'manage-data',
+            controller: 'ManageDataCtrl',
+            templateUrl: '../app/src/pages/manage-data/manage-data.html'
         }
     });
 })();
