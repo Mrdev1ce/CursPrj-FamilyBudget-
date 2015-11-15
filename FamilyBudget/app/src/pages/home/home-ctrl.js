@@ -7,7 +7,6 @@
 
     function homeCtrl($scope, wallets, operations) {
         var dataRegex = /^\/Date\((\d+)\)\/$/;
-        $scope.title = 'HOME';
         $scope.wallets = wallets.data;
         $scope.totalFunds = _.reduce(wallets.data, function (total, num) {
             total = angular.isObject(total) ? total.Funds : total;

@@ -3,6 +3,20 @@
         <div class="col-xs-12 col-sm-6">
             <div class="content-card item-info">
                 <p class="title">Wallets</p>
+                <div ng-repeat="wallet in wallets track by $index" class="row item-row">
+                    <div class="col-xs-8">
+                        <div class="item-data">
+                            <div class="item-prop"><strong>Name:</strong> {{wallet.Name}}</div>
+                            <div class="item-prop"><strong>Funds:</strong> {{wallet.Funds}} RUB</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="item-action">
+                            <a class="action-link" ui-sref="walletEdit({id: wallet.ID})">Edit</a>
+                            <a class="action-link" href="#">Delete</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6">

@@ -10,7 +10,7 @@
         this.getUserWalletsByID = getUserWalletsByID;
 
         function getUserWallets() {
-            return $http.get('/service/getuserwallets');
+            return $http.get('/service/getUserWallets');
         }
 
         function getUserWalletsByID(id) {

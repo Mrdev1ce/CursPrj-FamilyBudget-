@@ -70,7 +70,21 @@
             parent: 'main',
             url: 'manage-data',
             controller: 'ManageDataCtrl',
-            templateUrl: '../app/src/pages/manage-data/manage-data.html'
+            templateUrl: '../app/src/pages/manage-data/manage-data.html',
+            resolve: {
+                wallets: [
+                    'Wallets',
+                    function (Wallets) {
+                        return Wallets.getUserWallets();
+                    }
+                ],
+                operations: [
+                    'Operations',
+                    function (Operations) {
+                        return Operations.getUserOperations();
+                    }
+                ]
+            }
         }
     });
 })();

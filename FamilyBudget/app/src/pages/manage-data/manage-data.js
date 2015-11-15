@@ -3,9 +3,9 @@
 
     angular.module('App').controller('ManageDataCtrl', ManageDataCtrl);
 
-    ManageDataCtrl.$inject = ['$scope'];
+    ManageDataCtrl.$inject = ['$scope', 'wallets'];
 
-    function ManageDataCtrl($scope) {
-
+    function ManageDataCtrl($scope, wallets) {
+        $scope.wallets = wallets.data;
     }
 })();
