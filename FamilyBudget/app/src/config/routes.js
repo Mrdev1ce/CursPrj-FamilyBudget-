@@ -57,6 +57,13 @@
                     }
                 ]
             }
+        },
+        WalletEditRoute: {
+            name: 'walletEdit',
+            parent: 'main',
+            url: 'wallet-edit/{id:[0-9]+|new}',
+            controller: 'WalletEditCtrl',
+            templateUrl: '../app/src/pages/wallet-edit/wallet-edit.html'
         }
     });
 })();

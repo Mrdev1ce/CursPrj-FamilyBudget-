@@ -1,0 +1,48 @@
+﻿<div class="content-wrap">
+    <div class="content-card">
+        <div class="sum-back">
+            <p ng-if="wallet.Name" class="account-title"><strong>{{wallet.Name}}</strong>:</p>
+            <p ng-if="wallet.Funds && form.funds.$valid" class="sum">{{wallet.Funds}} RUB</p>
+            <p ng-if="!wallet.Name && !wallet.Funds" 
+               class="account-title">There will be a preview of your account</p>
+        </div>
+    </div>
+    <div class="content-card form-wrap">
+        <form class="form-horizontal form-center" name="form" ng-submit="submit()" novalidate>
+            <fieldset>
+                <legend>Edit wallet</legend>
+                <div class="form-group">
+                    <label for="inputName" class="col-xs-3 control-label">Name</label>
+                    <div class="col-xs-9">
+                        <input id="inputName" 
+                               ng-model="wallet.Name" 
+                               name="name" 
+                               class="form-control" 
+                               type="text"
+                               required/>
+                        <div class="text-danger" ng-show="form.name.$dirty" ng-messages="form.name.$error">
+                            <div ng-message="required">This required field</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="col-xs-3 control-label">Funds</label>
+                    <div class="col-xs-9">
+                        <input id="inputPassword" 
+                               ng-model="wallet.Funds" name="funds" class="form-control" type="text"
+                               pattern="[0-9]+"
+                               required />
+                        <div class="text-danger" ng-show="form.funds.$dirty" ng-messages="form.funds.$error">
+                            <div ng-message="required">This required field</div>
+                            <div ng-message="pattern">This field expects only digits</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <button ng-disabled="!form.$valid || form.$pristine"
+                              class="btn btn-primary pull-right">Save</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

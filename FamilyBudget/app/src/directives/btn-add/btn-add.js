@@ -12,6 +12,9 @@
                 $scope.toggle = function () {
                     $scope.isShow = !$scope.isShow;
                 };
+                $scope.$on('$stateChangeSuccess', function () {
+                    $scope.isShow = false;
+                });
             },
             templateUrl: 'app/src/directives/btn-add/btn-add.html'
         };
