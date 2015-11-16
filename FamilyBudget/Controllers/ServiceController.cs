@@ -61,5 +61,17 @@ namespace FamilyBudget.Controllers
             return null;
         }
 
+        [HttpPost]
+        public JsonResult AddOrEditWallet(Wallet wallet)
+        {
+            if (!string.IsNullOrEmpty(wallet.Name))
+            {
+                var userLogin = User.Identity.Name;
+                bool isSuccess = WalletsManager.AddWallet(wallet, userLogin);
+                return Json(new { success = isSuccess });
+            }
+            return Json(new { success = false });
+        }
+
     }
 }

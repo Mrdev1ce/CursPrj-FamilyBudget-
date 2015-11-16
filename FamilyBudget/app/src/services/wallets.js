@@ -8,6 +8,7 @@
     function wallets($http) {
         this.getUserWallets = getUserWallets;
         this.getUserWalletsByID = getUserWalletsByID;
+        this.addOrEditWallet = addOrEditWallet;
 
         function getUserWallets() {
             return $http.get('/service/getUserWallets');
@@ -18,6 +19,14 @@
                 url: '/service/GetUserWalletByID', 
                 method: 'GET',
                 params: { walletID: id }
+            });
+        }
+
+        function addOrEditWallet(wallet) {
+            return $http({
+                url: '/service/AddOrEditWallet',
+                method: 'POST',
+                data: wallet
             });
         }
     }

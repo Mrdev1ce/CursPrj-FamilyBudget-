@@ -52,5 +52,19 @@ namespace FamilyBudget.Models
             }
             return null;
         }
+
+        public static bool AddWallet(Wallet wallet, string userLogin)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("AddWallet", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                command.Parameters.AddWithValue("@walletID", wallet.ID);
+                command.Parameters.AddWithValue("@walletName", wallet.Name);
+                command.Parameters.AddWithValue("@walletFunds", wallet.Funds);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
     }
 }
