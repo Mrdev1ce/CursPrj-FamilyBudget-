@@ -57,5 +57,31 @@ namespace FamilyBudget.Models
             }
             return operations;
         }
+
+        public static bool AddOperation(Operation operation)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("AddOperation", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@walletID", operation.WalletID);
+                command.Parameters.AddWithValue("@categoryID", operation.CategoryID);
+                command.Parameters.AddWithValue("@type", operation.Type);
+                command.Parameters.AddWithValue("@sum", operation.Sum);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
+
+        public static bool RemoveOperation(int operationId, string userLogin)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("RemoveOperation", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@operationId", operationId);
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
     }
 }

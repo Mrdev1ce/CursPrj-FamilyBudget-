@@ -118,6 +118,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoriesManager.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CustomRoleProvider.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Operation.cs" />
@@ -135,6 +137,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app\libs\bootstrap\css\bootstrap-paper.css" />
     <Content Include="app\src\app.js" />
+    <Content Include="app\src\blocks\modal-instance.js" />
+    <Content Include="app\src\blocks\modal.html" />
     <Content Include="app\src\common\css\controls.css" />
     <Content Include="app\src\common\css\fonts.css" />
     <Content Include="app\src\directives\btn-add\btn-add.css" />
@@ -145,10 +149,13 @@
     <Content Include="app\src\pages\manage-data\manage-data.css" />
     <Content Include="app\src\pages\manage-data\manage-data.html" />
     <Content Include="app\src\pages\manage-data\manage-data.js" />
+    <Content Include="app\src\pages\operation-edit\operation-edit.html" />
+    <Content Include="app\src\pages\operation-edit\operation-edit.js" />
     <Content Include="app\src\pages\wallet-details\wallet-details.html" />
     <Content Include="app\src\pages\wallet-details\wallet-details.js" />
     <Content Include="app\src\pages\wallet-edit\wallet-edit.html" />
     <Content Include="app\src\pages\wallet-edit\wallet-edit.js" />
+    <Content Include="app\src\services\categories.js" />
     <Content Include="app\src\services\operations.js" />
     <Content Include="app\src\services\user.js" />
     <Content Include="app\src\services\wallets.js" />

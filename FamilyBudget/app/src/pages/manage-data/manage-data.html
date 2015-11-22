@@ -6,14 +6,14 @@
                 <div ng-repeat="wallet in wallets track by $index" class="row item-row">
                     <div class="col-xs-8">
                         <div class="item-data">
-                            <div class="item-prop"><strong>Name:</strong> {{wallet.Name}}</div>
-                            <div class="item-prop"><strong>Funds:</strong> {{wallet.Funds}} RUB</div>
+                            <div class="item-prop text-ellipsis"><strong>Name:</strong> {{wallet.Name}}</div>
+                            <div class="item-prop text-ellipsis"><strong>Funds:</strong> {{wallet.Funds}} RUB</div>
                         </div>
                     </div>
                     <div class="col-xs-4">
                         <div class="item-action">
                             <a class="action-link" ui-sref="walletEdit({id: wallet.ID})">Edit</a>
-                            <a class="action-link" href="#">Delete</a>
+                            <a class="action-link" href="#" ng-click="showConfirmModal(wallet, 'wallet', $event)">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -22,11 +22,51 @@
         <div class="col-xs-12 col-sm-6">
             <div class="content-card item-info">
                 <p class="title">Categories</p>
+                <div ng-repeat="category in categories track by $index" class="row item-row">
+                    <div class="col-xs-12">
+                        <div class="item-data">
+                            <div class="item-prop text-ellipsis"><strong>Name:</strong> {{category.Name}}</div>
+                        </div>
+                    </div>
+                    <!--<div class="col-xs-4">
+                        <div class="item-action item-action-categories">
+                            <a class="action-link" href="#">Edit</a>
+                            <a class="action-link" href="#">Delete</a>
+                        </div>
+                    </div>-->
+                </div>
             </div>
         </div>
         <div class="col-xs-12">
             <div class="content-card item-info">
                 <p class="title">Operations</p>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Account</th>
+                            <th>Sum</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="operation in operations track by $index"
+                            ng-class="{'danger': !operation.Type, 'success': operation.Type}">
+                            <td>{{$index+1}}</td>
+                            <td>{{operation.WalletName}}</td>
+                            <td>
+                                <span ng-if="operation.Type">+</span>
+                                <span ng-if="!operation.Type">-</span>
+                                {{operation.Sum}} RUB
+                            </td>
+                            <td>{{operation.CategoryName}}</td>
+                            <td>{{operation.Date | date: 'dd-MM-yyyy'}}</td>
+                            <td><a href="#" ng-click="showConfirmModal(operation, 'operation', $event)">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

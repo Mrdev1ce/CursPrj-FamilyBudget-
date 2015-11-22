@@ -17,6 +17,9 @@
     margin-top: 13px;
     font-size: 15px;
 }
+.item-action.item-action-categories {
+    margin-top: 0;
+}
 .item-action > .action-link {
     margin-left: 5px;
 }

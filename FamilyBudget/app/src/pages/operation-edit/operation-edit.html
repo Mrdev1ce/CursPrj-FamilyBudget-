@@ -1,0 +1,86 @@
+﻿<div class="content-wrap">
+    <div class="content-card">
+        <div class="sum-back" ng-class="{'sum-back-red': operation.Type === '0'}">
+            <p ng-if="walletName" class="account-title text-ellipsis"><strong>{{walletName}}</strong>:</p>
+            <p ng-if="operation.Sum && form.sum.$valid && walletName" class="sum text-ellipsis">
+                <span ng-if="operation.Type === '1'">+</span>
+                <span ng-if="operation.Type === '0'">-</span>
+                {{operation.Sum}} RUB
+            </p>
+            <p ng-if="!walletName"
+               class="account-title">There will be a preview of your operation</p>
+        </div>
+    </div>
+    <div class="content-card form-wrap">
+        <form class="form-horizontal form-center" name="form" ng-submit="submit()" novalidate>
+            <fieldset>
+                <legend>Add operation</legend>
+                <div class="form-group">
+                    <label for="inputSum" class="col-xs-3 control-label">Sum</label>
+                    <div class="col-xs-9">
+                        <input id="inputSum"
+                               ng-model="operation.Sum" name="sum" class="form-control" type="text"
+                               pattern="[0-9]+"
+                               required />
+                        <div class="text-danger" ng-show="form.sum.$dirty" ng-messages="form.sum.$error">
+                            <div ng-message="required">This required field</div>
+                            <div ng-message="pattern">This field expects only digits</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="select" class="col-xs-3 control-label">Wallet</label>
+                    <div class="col-xs-9">
+                        <select name="walletId" ng-model="operation.WalletID" class="form-control" id="select" required>
+                            <option ng-repeat="wallet in wallets track by $index"
+                                    value="{{wallet.ID}}">
+                                {{wallet.Name}}
+                            </option>
+                        </select>
+                        <div class="text-danger" ng-show="form.walletId.$dirty" ng-messages="form.walletId.$error">
+                            <div ng-message="required">This required field</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Type</label>
+                    <div class="col-xs-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="operation.Type" value="1" checked="">
+                                Income
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="operation.Type" value="0">
+                                Expense
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="select" class="col-xs-3 control-label">Category</label>
+                    <div class="col-xs-9">
+                        <select name="categoryId" ng-model="operation.CategoryID" class="form-control" id="select" required>
+                            <option ng-repeat="category in categories track by $index"
+                                    value="{{category.ID}}">
+                                {{category.Name}}
+                            </option>
+                        </select>
+                        <div class="text-danger" ng-show="form.categoryId.$dirty" ng-messages="form.categoryId.$error">
+                            <div ng-message="required">This required field</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <button ng-disabled="!form.$valid || form.$pristine"
+                            class="btn btn-primary pull-right">
+                        Save
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+

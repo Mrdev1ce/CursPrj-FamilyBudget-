@@ -66,5 +66,17 @@ namespace FamilyBudget.Models
                 return command.ExecuteNonQuery() > 0;
             }
         }
+
+        public static bool RemoveWallet(int walletId, string userLogin)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("RemoveWallet", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@walletId", walletId);
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
     }
 }

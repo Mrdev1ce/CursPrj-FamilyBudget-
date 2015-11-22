@@ -21,6 +21,11 @@ p {
   position: absolute;
   flex-wrap: nowrap;
 }
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 /*HEADER*/
 
@@ -132,6 +137,9 @@ p {
   min-height: 220px;
   display: flex;
   flex-direction: column;
+}
+.sum-back.sum-back-red {
+  background: #E53935;
 }
 .sum {
   font-size: 80px;

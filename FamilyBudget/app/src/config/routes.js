@@ -83,6 +83,33 @@
                     function (Operations) {
                         return Operations.getUserOperations();
                     }
+                ],
+                categories: [
+                    'Categories',
+                    function (Categories) {
+                        return Categories.getAllCategories();
+                    }
+                ]
+            }
+        },
+        OperationEditRoute: {
+            name: 'operationEdit',
+            parent: 'main',
+            url: 'operation-edit/new',
+            controller: 'OperationEditCtrl',
+            templateUrl: '../app/src/pages/operation-edit/operation-edit.html',
+            resolve: {
+                wallets: [
+                    'Wallets',
+                    function (Wallets) {
+                        return Wallets.getUserWallets();
+                    }
+                ],
+                categories: [
+                    'Categories',
+                    function (Categories) {
+                        return Categories.getAllCategories();
+                    }
                 ]
             }
         }

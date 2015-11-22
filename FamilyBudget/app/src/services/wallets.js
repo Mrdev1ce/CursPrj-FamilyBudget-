@@ -9,6 +9,7 @@
         this.getUserWallets = getUserWallets;
         this.getUserWalletsByID = getUserWalletsByID;
         this.addOrEditWallet = addOrEditWallet;
+        this.removeWallet = removeWallet;
 
         function getUserWallets() {
             return $http.get('/service/getUserWallets');
@@ -27,6 +28,16 @@
                 url: '/service/AddOrEditWallet',
                 method: 'POST',
                 data: wallet
+            });
+        }
+
+        function removeWallet(id) {
+            return $http({
+                url: '/service/RemoveWallet',
+                method: 'POST',
+                data: {
+                    walletId: id
+                }
             });
         }
     }

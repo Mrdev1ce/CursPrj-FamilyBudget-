@@ -20,5 +20,7 @@ namespace FamilyBudget.Models
         public DateTime Date { get; set; }
 
         public string CategoryName { get; set; }
+
+        public int CategoryID { get; set; }
     }
 }

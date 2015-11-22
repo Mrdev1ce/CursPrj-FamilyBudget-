@@ -73,5 +73,47 @@ namespace FamilyBudget.Controllers
             return Json(new { success = false });
         }
 
+        [HttpGet]
+        public JsonResult GetAllCategories()
+        {
+            var categories = CategoriesManager.GetAllCategories();
+            return Json(categories, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult AddOperation(Operation operation)
+        {
+            if (operation.WalletID > -1 && operation.CategoryID > -1 && operation.Sum > 0)
+            {
+                bool isSuccess = OperationsManager.AddOperation(operation);
+                return Json(new { success = isSuccess });
+            }
+            return Json(new { success = false });
+        }
+
+        [HttpPost]
+        public JsonResult RemoveOperation(int? operationId)
+        {
+            if (operationId != null && operationId > -1)
+            {
+                var userLogin = User.Identity.Name;
+                bool isSuccess = OperationsManager.RemoveOperation((int)operationId, userLogin);
+                return Json(new { success = isSuccess });
+            }
+            return Json(new { success = false });
+        }
+
+        [HttpPost]
+        public JsonResult RemoveWallet(int? walletId)
+        {
+            if (walletId != null && walletId > -1)
+            {
+                var userLogin = User.Identity.Name;
+                bool isSuccess = WalletsManager.RemoveWallet((int)walletId, userLogin);
+                return Json(new { success = isSuccess });
+            }
+            return Json(new { success = false });
+        }
+
     }
 }

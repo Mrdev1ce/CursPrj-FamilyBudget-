@@ -2,6 +2,6 @@
     <button ng-click="toggle()" class="btn-material">+</button>
     <div class="btn-background" ng-if="isShow">
         <a ng-click="toggle()" ui-sref="walletEdit({id: 'new'})" class="link">Account</a>
-        <a ng-click="toggle()" href="#" class="link">Operation</a>
+        <a ng-click="toggle()" ui-sref="operationEdit" class="link">Operation</a>
     </div>
 </div>
