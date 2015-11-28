@@ -1,11 +1,11 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('App').controller('ModalInstanceCtrl', ModalInstanceCtrl);
+    angular.module('App').controller('DeleteModalInstanceCtrl', DeleteModalInstanceCtrl);
 
-    ModalInstanceCtrl.$inject = ['$scope', '$uibModalInstance', 'item'];
+    DeleteModalInstanceCtrl.$inject = ['$scope', '$uibModalInstance', 'item'];
 
-    function ModalInstanceCtrl($scope, $uibModalInstance, item) {
+    function DeleteModalInstanceCtrl($scope, $uibModalInstance, item) {
         $scope.item = item;
 
         $scope.ok = function () {

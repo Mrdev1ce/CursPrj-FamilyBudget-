@@ -137,10 +137,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app\libs\bootstrap\css\bootstrap-paper.css" />
     <Content Include="app\src\app.js" />
-    <Content Include="app\src\blocks\modal-instance.js" />
-    <Content Include="app\src\blocks\modal.html" />
+    <Content Include="app\src\blocks\change-pass-modal\modal-instance.js" />
+    <Content Include="app\src\blocks\change-pass-modal\modal.html" />
+    <Content Include="app\src\blocks\confirm-delete-modal\modal-instance.js" />
+    <Content Include="app\src\blocks\confirm-delete-modal\modal.html" />
     <Content Include="app\src\common\css\controls.css" />
     <Content Include="app\src\common\css\fonts.css" />
+    <Content Include="app\src\common\img\photo.jpg" />
     <Content Include="app\src\directives\btn-add\btn-add.css" />
     <Content Include="app\src\directives\btn-add\btn-add.html" />
     <Content Include="app\src\directives\btn-add\btn-add.js" />
@@ -151,6 +154,9 @@
     <Content Include="app\src\pages\manage-data\manage-data.js" />
     <Content Include="app\src\pages\operation-edit\operation-edit.html" />
     <Content Include="app\src\pages\operation-edit\operation-edit.js" />
+    <Content Include="app\src\pages\profile\profile.css" />
+    <Content Include="app\src\pages\profile\profile.html" />
+    <Content Include="app\src\pages\profile\profile.js" />
     <Content Include="app\src\pages\wallet-details\wallet-details.html" />
     <Content Include="app\src\pages\wallet-details\wallet-details.js" />
     <Content Include="app\src\pages\wallet-edit\wallet-edit.html" />

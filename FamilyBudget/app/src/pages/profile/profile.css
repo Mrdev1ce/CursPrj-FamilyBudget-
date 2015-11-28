@@ -1,0 +1,14 @@
+﻿.profile-wrap > .user-panel {
+    padding: 20px;
+}
+.user-panel .user-icon {
+    width: 100%;
+}
+.user-panel .user-actions {
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+.user-actions .action {
+    display: block;
+}

@@ -112,6 +112,13 @@
                     }
                 ]
             }
+        },
+        ProfileRoute: {
+            name: 'profile',
+            parent: 'main',
+            url: 'profile',
+            controller: 'ProfileCtrl',
+            templateUrl: '../app/src/pages/profile/profile.html'
         }
     });
 })();

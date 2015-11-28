@@ -173,3 +173,13 @@ p {
   padding: 20px;
   margin: auto;
 }
+
+/*----------------------*/
+/*Manage Data and Personal Pages*/
+.item-info {
+    padding: 15px;
+}
+.item-info > .title {
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 19.5px;
+}

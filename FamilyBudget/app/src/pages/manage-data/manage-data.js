@@ -18,8 +18,8 @@
             $event.preventDefault();
             var modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: '../app/src/blocks/modal.html',
-                controller: 'ModalInstanceCtrl',
+                templateUrl: '../app/src/blocks/confirm-delete-modal/modal.html',
+                controller: 'DeleteModalInstanceCtrl',
                 size: 'sm',
                 resolve: {
                     item: function () {
