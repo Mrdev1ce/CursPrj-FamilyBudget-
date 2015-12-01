@@ -48,5 +48,60 @@ namespace FamilyBudget.Models
             }
             
         }
+
+        public static User GetUserInfo(string userLogin)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("GetUserInfo", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = (int)reader["ID"];
+                    string mail = (string)reader["Mail"];
+                    DateTime registrationDate = (DateTime)reader["RegistrationDate"];
+                    bool isAdmin = (bool)reader["isAdmin"];
+                    return new User() { ID = id, Mail = mail, RegistrationDate = registrationDate, IsAdmin = isAdmin };
+                }
+            }
+            return null;
+        }
+
+        public static List<User> GetAllUsersInfo(string userLogin)
+        {
+            var users = new List<User>();
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("GetAllUsers", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = (int)reader["ID"];
+                    string login = (string) reader["Login"];
+                    string mail = (string)reader["Mail"];
+                    DateTime registrationDate = (DateTime)reader["RegistrationDate"];
+                    bool isAdmin = (bool)reader["isAdmin"];
+                    users.Add(new User() { ID = id, Login = login, Mail = mail, RegistrationDate = registrationDate, IsAdmin = isAdmin });
+                }
+            }
+            return users.Count > 0 ? users : null;
+        }
+
+        public static bool ChangeUserPassword(string userLogin, string userOldPass, string userNewPass)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("ChangeUserPassword", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                command.Parameters.AddWithValue("@userOldPassword", userOldPass);
+                command.Parameters.AddWithValue("@userNewPassword", userNewPass);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
     }
 }

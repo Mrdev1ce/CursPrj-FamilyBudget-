@@ -11,7 +11,7 @@
                 userInfo: [
                     'User',
                     function (User) {
-                        return User.getUserInfo();
+                        return User.getUserLogin();
                     }
                 ]
             }
@@ -118,7 +118,15 @@
             parent: 'main',
             url: 'profile',
             controller: 'ProfileCtrl',
-            templateUrl: '../app/src/pages/profile/profile.html'
+            templateUrl: '../app/src/pages/profile/profile.html',
+            resolve: {
+                userInfo: [
+                    'User',
+                    function(User) {
+                        return User.getUserInfo();
+                    }
+                ]
+            }
         }
     });
 })();

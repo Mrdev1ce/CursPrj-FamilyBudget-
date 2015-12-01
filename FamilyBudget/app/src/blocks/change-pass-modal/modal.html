@@ -2,13 +2,14 @@
     <form class="form-horizontal form-center" name="form" novalidate>
         <fieldset>
             <legend>Change password</legend>
+            <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</uib-alert>
             <div class="form-group">
                 <label for="inputOldPass" class="col-xs-3 control-label">Old password</label>
                 <div class="col-xs-9">
                     <input id="inputOldPass"
                            ng-model="pass.OldPass" name="oldPass" class="form-control" type="password"
                            min-length="3"
-                           required />
+                           required/>
                     <div class="text-danger" ng-show="form.oldPass.$dirty" ng-messages="form.oldPass.$error">
                         <div ng-message="required">This required field</div>
                         <div ng-message="min-length">Minimal length is three chars</div>
@@ -21,7 +22,7 @@
                     <input id="inputNewPass"
                            ng-model="pass.NewPass" name="newPass" class="form-control" type="password"
                            min-length="3"
-                           required />
+                           required/>
                     <div class="text-danger" ng-show="form.newPass.$dirty" ng-messages="form.newPass.$error">
                         <div ng-message="required">This required field</div>
                         <div ng-message="min-length">Minimal length is three chars</div>

@@ -6,28 +6,28 @@
             </div>
             <div class="col-xs-9 col-lg-10">
                 <div>
-                    <strong>Login:</strong> maksim
+                    <strong>Login:</strong> {{user.Login}}
                 </div>
                 <div>
                     <strong>Password:</strong> &bull;&bull;&bull;&bull;
                 </div>
                 <div>
-                    <strong>Mail:</strong> maksim@epam.com
+                    <strong>Mail:</strong> {{user.Mail}}
                 </div>
                 <div>
-                    <strong>Registation Date:</strong> 11-05-2014
+                    <strong>Registation Date:</strong> {{user.RegistrationDate | date: 'dd-MM-yyyy'}}
                 </div>
                 <div>
-                    <strong>Role:</strong> Administarator
+                    <strong>Role:</strong> {{user.Role}}
                 </div>
                 <div class="user-actions">
                     <a href="#" class="action" ng-click="showChangePassModal($event)">Change password</a>
-                    <a href="#" class="action">Manage categories</a>
+                    <a ng-if="user.IsAdmin" href="#" class="action">Manage categories</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="content-card item-info">
+    <div ng-if="user.IsAdmin" class="content-card item-info">
         <div class="title">Users</div>
         <table class="table table-hover">
             <thead>

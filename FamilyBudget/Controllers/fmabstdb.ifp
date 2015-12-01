@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Helpers;
 using System.Web.Mvc;
 using FamilyBudget.Models;
 using FamilyBudget.Models.HelpModels;
@@ -48,14 +47,14 @@ namespace FamilyBudget.Controllers
         }
 
         [HttpPost]
-        public JsonResult ChangeUserPassword(ChangePass data)
+        public JsonResult ChangeUserPassword(JObject data)
         {
             var userLogin = User.Identity.Name;
-            if (data.NewPass != null && data.OldPass != null)
-            {
-                var isSuccess = UsersManager.ChangeUserPassword(userLogin, data.OldPass, data.NewPass);
-                return Json(new {isSuccess = isSuccess});
-            }
+            //if (!string.IsNullOrEmpty(oldPass) && !string.IsNullOrEmpty(newPass))
+            //{
+            //    var isSuccess = UsersManager.ChangeUserPassword(userLogin, oldPass, newPass);
+            //    return Json(new {isSuccess = isSuccess});
+            //}
             return Json(new {isSuccess = false});
         }
 
