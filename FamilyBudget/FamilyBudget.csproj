@@ -138,6 +138,7 @@
     <Content Include="app\libs\bootstrap\css\bootstrap-paper.css" />
     <Content Include="app\src\app.js" />
     <Content Include="app\src\blocks\change-pass-modal\modal-instance.js" />
+    <Content Include="app\src\blocks\change-pass-modal\modal.css" />
     <Content Include="app\src\blocks\change-pass-modal\modal.html" />
     <Content Include="app\src\blocks\confirm-delete-modal\modal-instance.js" />
     <Content Include="app\src\blocks\confirm-delete-modal\modal.html" />
