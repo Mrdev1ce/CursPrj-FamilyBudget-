@@ -136,9 +136,15 @@
             templateUrl: '../app/src/pages/user-info/user-info.html',
             resolve: {
                 userInfo: [
-                    '$q',
-                    function($q) {
-                        return $q.when({});
+                    'User', '$stateParams',
+                    function(User, $stateParams) {
+                        return User.getUserInfoAbout(+$stateParams.id);
+                    }
+                ],
+                userWallets: [
+                    'Wallets', '$stateParams',
+                    function(Wallets, $stateParams) {
+                        return Wallets.getUserWalletsAbout(+$stateParams.id);
                     }
                 ]
             }

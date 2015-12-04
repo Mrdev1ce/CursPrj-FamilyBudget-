@@ -10,6 +10,7 @@
         this.getUserWalletsByID = getUserWalletsByID;
         this.addOrEditWallet = addOrEditWallet;
         this.removeWallet = removeWallet;
+        this.getUserWalletsAbout = getUserWalletsAbout;
 
         function getUserWallets() {
             return $http.get('/service/getUserWallets');
@@ -20,6 +21,14 @@
                 url: '/service/GetUserWalletByID', 
                 method: 'GET',
                 params: { walletID: id }
+            });
+        }
+
+        function getUserWalletsAbout(userId) {
+            return $http({
+                url: '/service/GetUserWalletsAbout',
+                method: 'GET',
+                params: { userId: userId }
             });
         }
 

@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="user in users track by $index">
+                <tr ui-sref="userInfo({id: user.ID})" class="cp" ng-repeat="user in users track by $index">
                     <td>{{$index+1}}</td>
                     <td>{{user.Login}}</td>
                     <td>{{user.Mail}}</td>

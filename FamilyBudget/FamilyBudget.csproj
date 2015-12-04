@@ -122,6 +122,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CustomRoleProvider.cs" />
     <Compile Include="Models\HelpModels\ChangePass.cs" />
+    <Compile Include="Models\HelpModels\ChangeRole.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Operation.cs" />
     <Compile Include="Models\OperationsManager.cs" />

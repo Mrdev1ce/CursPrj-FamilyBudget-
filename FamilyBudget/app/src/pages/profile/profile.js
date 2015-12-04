@@ -28,6 +28,9 @@
 
             if ($scope.user.IsAdmin) {
                 $scope.users = userInfo.data.users;
+                _.remove($scope.users, {
+                    ID: $scope.user.ID
+                });
                 _.forEach($scope.users, function(user) {
                     user.RegistrationDate = new Date(+dataRegex.exec(user.RegistrationDate)[1]);
                     user.Role = user.IsAdmin ? 'Administrator' : 'User';

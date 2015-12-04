@@ -12,6 +12,7 @@
         this.getAllUsersInfo = getAllUsersInfo;
         this.changePassword = changePassword;
         this.changeUserRole = changeUserRole;
+        this.getUserInfoAbout = getUserInfoAbout;
 
         function getUserLogin() {
             return $http.get('/service/getUserLogin');
@@ -19,6 +20,16 @@
 
         function getUserInfo() {
             return $http.get('/service/getUserInfo');
+        }
+
+        function getUserInfoAbout(userId) {
+            return $http({
+                method: 'GET',
+                url: '/service/GetUserInfoAbout',
+                params: {
+                    userId: userId
+                }
+            });
         }
 
         function getAllUsersInfo() {
@@ -37,7 +48,14 @@
         }
 
         function changeUserRole(userLogin, roleIsAdmin) {
-            return $q.when({});
+            return $http({
+                method: 'POST',
+                url: '/service/changeUserRole',
+                data: {
+                    UserForChangeLogin: userLogin,
+                    IsAdmin: roleIsAdmin
+                }
+            });
         }
     }
 })();

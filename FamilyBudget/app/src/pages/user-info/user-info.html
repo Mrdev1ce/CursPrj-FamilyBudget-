@@ -2,7 +2,7 @@
     <div class="content-card user-panel">
         <div class="row">
             <div class="col-xs-3 col-lg-2">
-                <img class="user-icon" src="/app/src/common/img/user_icon.png" alt="user picture" />
+                <img class="user-icon" src="/app/src/common/img/user_icon.png" alt="user picture"/>
             </div>
             <div class="col-xs-9 col-lg-10">
                 <div>
@@ -23,6 +23,14 @@
                 <div class="user-actions">
                     <button class="btn btn-primary" ng-click="changeUserRole()">{{btnChangeRoleTitle}}</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-card">
+        <div class="all-accounts">
+            <div ng-repeat="wallet in userWallets track by $index" class="account">
+                <p>{{wallet.Name}}</p>
+                <p>{{wallet.Funds}} RUB</p>
             </div>
         </div>
     </div>

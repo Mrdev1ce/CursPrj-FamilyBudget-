@@ -42,9 +42,21 @@ namespace FamilyBudget.Controllers
                         users = users
                     }, JsonRequestBehavior.AllowGet);
                 }
-                return Json(user, JsonRequestBehavior.AllowGet);
+                return Json(new {user = user}, JsonRequestBehavior.AllowGet);
             }
             return Json(new {message = "No user with such login"});
+        }
+
+        [HttpGet]
+        public JsonResult GetUserInfoAbout(int? userId)
+        {
+            if (userId != null)
+            {
+                var userLogin = User.Identity.Name;
+                var user = UsersManager.GetUserInfoById(userLogin, (int)userId);
+                return Json(user, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { message = "No user with such login" });
         }
 
         [HttpPost]
@@ -59,12 +71,35 @@ namespace FamilyBudget.Controllers
             return Json(new {isSuccess = false});
         }
 
+        [HttpPost]
+        public JsonResult ChangeUserRole(ChangeRole data)
+        {
+            var userLogin = User.Identity.Name;
+            if (!string.IsNullOrEmpty(data.UserForChangeLogin) && data.IsAdmin != null)
+            {
+                var isSuccess = UsersManager.ChangeUserRole(userLogin, data.UserForChangeLogin, (bool)data.IsAdmin);
+                return Json(new { isSuccess = isSuccess });
+            }
+            return Json(new {isSuccess = false});
+        }
+
         [HttpGet]
         public JsonResult GetUserWallets()
         {
             var userLogin = User.Identity.Name;
             var wallets = WalletsManager.GetWalletsByLogin(userLogin);
             return Json(wallets, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult GetUserWalletsAbout(int? userId)
+        {
+            if (userId != null)
+            {
+                var wallets = WalletsManager.GetWalletsById((int) userId);
+                return Json(wallets, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { message = "No user with such ID" });
         }
 
         [HttpGet]

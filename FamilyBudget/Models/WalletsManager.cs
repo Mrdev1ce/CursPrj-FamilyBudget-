@@ -78,5 +78,25 @@ namespace FamilyBudget.Models
                 return command.ExecuteNonQuery() > 0;
             }
         }
+
+        public static List<Wallet> GetWalletsById(int userId)
+        {
+            var wallets = new List<Wallet>();
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("GetWalletsByOwnerId", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@OwnerID", userId);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = (int)reader["ID"];
+                    string name = (string)reader["Name"];
+                    int funds = (int)reader["Funds"];
+                    wallets.Add(new Wallet() { ID = id, Name = name, Funds = funds, OwnerID = userId });
+                }
+            }
+            return wallets.Count > 0 ? wallets : null;
+        }
     }
 }

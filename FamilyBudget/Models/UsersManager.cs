@@ -69,6 +69,28 @@ namespace FamilyBudget.Models
             return null;
         }
 
+        public static User GetUserInfoById(string userRequestedInfoLogin, int userId)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("GetUserInfoById", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userRequestedInfoLogin", userRequestedInfoLogin);
+                command.Parameters.AddWithValue("@userId", userId);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = (int)reader["ID"];
+                    string login = (string) reader["Login"];
+                    string mail = (string)reader["Mail"];
+                    DateTime registrationDate = (DateTime)reader["RegistrationDate"];
+                    bool isAdmin = (bool)reader["isAdmin"];
+                    return new User() { ID = id, Login = login, Mail = mail, RegistrationDate = registrationDate, IsAdmin = isAdmin };
+                }
+            }
+            return null;
+        }
+
         public static List<User> GetAllUsersInfo(string userLogin)
         {
             var users = new List<User>();
@@ -99,6 +121,19 @@ namespace FamilyBudget.Models
                 command.Parameters.AddWithValue("@userLogin", userLogin);
                 command.Parameters.AddWithValue("@userOldPassword", userOldPass);
                 command.Parameters.AddWithValue("@userNewPassword", userNewPass);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
+
+        public static bool ChangeUserRole(string userRequestedLogin, string userForChangeLogin, bool isAdmin)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("ChangeUserRole", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userRequestedChangeLogin", userRequestedLogin);
+                command.Parameters.AddWithValue("@userForChangeLogin", userForChangeLogin);
+                command.Parameters.AddWithValue("@roleIsAdmin", isAdmin);
                 connection.Open();
                 return command.ExecuteNonQuery() > 0;
             }
