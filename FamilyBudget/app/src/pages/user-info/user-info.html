@@ -1,0 +1,29 @@
+﻿<div class="content-wrap profile-wrap">
+    <div class="content-card user-panel">
+        <div class="row">
+            <div class="col-xs-3 col-lg-2">
+                <img class="user-icon" src="/app/src/common/img/user_icon.png" alt="user picture" />
+            </div>
+            <div class="col-xs-9 col-lg-10">
+                <div>
+                    <strong>Login:</strong> {{user.Login}}
+                </div>
+                <div>
+                    <strong>Password:</strong> &bull;&bull;&bull;&bull;
+                </div>
+                <div>
+                    <strong>Mail:</strong> {{user.Mail}}
+                </div>
+                <div>
+                    <strong>Registation Date:</strong> {{user.RegistrationDate | date: 'dd-MM-yyyy'}}
+                </div>
+                <div>
+                    <strong>Role:</strong> {{user.Role}}
+                </div>
+                <div class="user-actions">
+                    <button class="btn btn-primary" ng-click="changeUserRole()">{{btnChangeRoleTitle}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

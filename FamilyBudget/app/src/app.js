@@ -15,6 +15,7 @@
         $stateProvider.state(Routes.ManageDataRoute);
         $stateProvider.state(Routes.OperationEditRoute);
         $stateProvider.state(Routes.ProfileRoute);
+        $stateProvider.state(Routes.UserInfoRoute);
     });
 })();
 

@@ -159,6 +159,8 @@
     <Content Include="app\src\pages\profile\profile.css" />
     <Content Include="app\src\pages\profile\profile.html" />
     <Content Include="app\src\pages\profile\profile.js" />
+    <Content Include="app\src\pages\user-info\user-info.html" />
+    <Content Include="app\src\pages\user-info\user-info.js" />
     <Content Include="app\src\pages\wallet-details\wallet-details.html" />
     <Content Include="app\src\pages\wallet-details\wallet-details.js" />
     <Content Include="app\src\pages\wallet-edit\wallet-edit.html" />

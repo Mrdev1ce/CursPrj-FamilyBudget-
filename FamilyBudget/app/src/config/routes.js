@@ -127,6 +127,21 @@
                     }
                 ]
             }
+        },
+        UserInfoRoute: {
+            name: 'userInfo',
+            parent: 'main',
+            url: 'user-info/{id:[0-9]+}',
+            controller: 'UserInfoCtrl',
+            templateUrl: '../app/src/pages/user-info/user-info.html',
+            resolve: {
+                userInfo: [
+                    '$q',
+                    function($q) {
+                        return $q.when({});
+                    }
+                ]
+            }
         }
     });
 })();
