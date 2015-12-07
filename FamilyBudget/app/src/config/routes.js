@@ -148,6 +148,21 @@
                     }
                 ]
             }
+        },
+        ManageCategoriesRoute: {
+            name: 'manageCategories',
+            parent: 'main',
+            url: 'manage-categories',
+            controller: 'ManageCategoriesCtrl',
+            templateUrl: '../app/src/pages/manage-categories/manage-categories.html',
+            resolve: {
+                categories: [
+                    'Categories',
+                    function (Categories) {
+                        return Categories.getAllCategories();
+                    }
+                ]
+            }
         }
     });
 })();

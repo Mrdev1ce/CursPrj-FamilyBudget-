@@ -10,9 +10,12 @@
 
         $scope.wallets = wallets.data;
         $scope.categories = categories.data;
-        $scope.operations = _.sortBy(_.forEach(operations.data, function (value) {
-            value.Date = new Date(+dataRegex.exec(value.Date)[1]);
-        }), 'Date').reverse();
+
+        if (operations.data) {
+            $scope.operations = _.sortBy(_.forEach(operations.data, function (value) {
+                value.Date = new Date(+dataRegex.exec(value.Date)[1]);
+            }), 'Date').reverse();
+        }
 
         $scope.showConfirmModal = function (item, type, $event) {
             $event.preventDefault();

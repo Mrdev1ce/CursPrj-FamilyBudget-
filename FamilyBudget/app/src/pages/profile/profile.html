@@ -22,7 +22,7 @@
                 </div>
                 <div class="user-actions">
                     <a href="#" class="action" ng-click="showChangePassModal($event)">Change password</a>
-                    <a ng-if="user.IsAdmin" href="#" class="action">Manage categories</a>
+                    <a ng-if="user.IsAdmin" ui-sref="manageCategories" class="action">Manage categories</a>
                 </div>
             </div>
         </div>
