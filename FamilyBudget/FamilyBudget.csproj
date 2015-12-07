@@ -168,6 +168,7 @@
     <Content Include="app\src\pages\wallet-details\wallet-details.js" />
     <Content Include="app\src\pages\wallet-edit\wallet-edit.html" />
     <Content Include="app\src\pages\wallet-edit\wallet-edit.js" />
+    <Content Include="app\src\services\camelize.js" />
     <Content Include="app\src\services\categories.js" />
     <Content Include="app\src\services\operations.js" />
     <Content Include="app\src\services\user.js" />
