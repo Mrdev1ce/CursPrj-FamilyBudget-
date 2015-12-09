@@ -1,18 +1,1 @@
-﻿.item-row {
-    margin-bottom: 10px;
-}
-.item-info .item-data {
-    border-left: 3px solid #34a853;
-    padding-left: 10px;
-    font-size: 15px;
-}
-.item-action {
-    margin-top: 13px;
-    font-size: 15px;
-}
-.item-action.item-action-categories {
-    margin-top: 0;
-}
-.item-action > .action-link {
-    margin-left: 5px;
-}
+﻿

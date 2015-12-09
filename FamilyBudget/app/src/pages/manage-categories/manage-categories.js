@@ -6,6 +6,6 @@
     ManageCategoriesCtrl.$inject = ['$scope', 'categories'];
 
     function ManageCategoriesCtrl($scope, categories) {
-        
+        $scope.categories = categories.data;
     }
 })();
