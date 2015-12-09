@@ -74,6 +74,16 @@ p {
   width: 100%;
   margin-top: 10px;
 }
+.user-login > .icon-logout {
+  line-height: 23px;
+  color: #ffffff;
+}
+.user-login > .icon-logout:hover,
+.user-login > .icon-logout:active,
+.user-login > .icon-logout:focus {
+  text-decoration: none;
+  color: inherit;
+}
 .user-card > .user-avatar {
   display: block;
   height: 50px;

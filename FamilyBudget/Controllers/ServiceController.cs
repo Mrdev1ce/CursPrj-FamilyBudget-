@@ -71,6 +71,7 @@ namespace FamilyBudget.Controllers
             return Json(new {isSuccess = false});
         }
 
+        [Authorize(Roles="Admin")]
         [HttpPost]
         public JsonResult ChangeUserRole(ChangeRole data)
         {

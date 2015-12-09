@@ -12,6 +12,7 @@ using FamilyBudget.Models;
 
 namespace FamilyBudget.Controllers
 {
+    [AllowAnonymous]
     public class AuthController : Controller
     {
         //
@@ -63,8 +64,16 @@ namespace FamilyBudget.Controllers
         {
             if (ModelState.IsValid)
             {
-                UsersManager.AddUser(user);
-                return RedirectToAction("sp", "main");
+                if (UsersManager.GetUserInfo(user.Login) == null)
+                {
+                    UsersManager.AddUser(user);
+                    return RedirectToAction("sp", "main");
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "This login is in use by another user!";
+                    return View();
+                }
             }
 
             return View();
