@@ -6,19 +6,21 @@
                 <div ng-repeat="category in categories track by $index" class="row item-row">
                     <div class="col-xs-10">
                         <div class="item-data">
-                            <div ng-if="ifods" class="item-prop text-ellipsis"><strong>Name:</strong> {{category.Name}}</div>
-                            <div class="item-prop row">
+                            <div ng-if="!isEditing[$index]" class="item-prop text-ellipsis"><strong>Name:</strong> {{category.Name}}</div>
+                            <div ng-if="isEditing[$index]" class="item-prop row">
                                 <label class="col-xs-2" for="inputEdit-{{$index}}"><strong>Name:</strong></label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="inputEdit-{{$index}}" ng-model="editingProp">
+                                    <input type="text" class="form-control" id="inputEdit-{{$index}}" ng-model="editing.value">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-2">
                         <div class="item-action item-action-categories txt-right">
-                            <i class="glyphicon glyphicon-pencil action-link cp" title="Edit"></i>
-                            <i class="glyphicon glyphicon-remove action-link cp" title="Delete"></i>
+                            <i ng-if="!isEditing[$index]" class="glyphicon glyphicon-pencil action-link cp" ng-click="startEditing($index)" title="Edit"></i>
+                            <i ng-if="!isEditing[$index]" class="glyphicon glyphicon-trash action-link cp" ng-click="deleteCategory($index)" title="Delete"></i>
+                            <i ng-if="isEditing[$index]" class="glyphicon glyphicon-ok action-link cp" ng-click="applyEditing($index)" title="Apply"></i>
+                            <i ng-if="isEditing[$index]" class="glyphicon glyphicon-remove action-link cp" ng-click="cancelEditing($index)" title="Cancel"></i>
                         </div>
                     </div>
                 </div>
