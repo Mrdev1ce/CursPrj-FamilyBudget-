@@ -28,5 +28,18 @@ namespace FamilyBudget.Models
             }
             return categories;
         }
+
+        public static bool AddOrEditCategory(Category category, string userLogin)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("AddCategory", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                command.Parameters.AddWithValue("@categoryId", category.ID);
+                command.Parameters.AddWithValue("@categoryName", category.Name);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
     }
 }

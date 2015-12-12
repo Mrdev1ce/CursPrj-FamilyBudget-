@@ -188,5 +188,17 @@ namespace FamilyBudget.Controllers
             return Json(new { success = false });
         }
 
+        [HttpPost]
+        public JsonResult AddOrEditCategory(Category category)
+        {
+            if (!string.IsNullOrEmpty(category.Name))
+            {
+                var userLogin = User.Identity.Name;
+                var isSuccess = CategoriesManager.AddOrEditCategory(category, userLogin);
+                return Json(new { success = isSuccess });
+            }
+            return Json(new { success = false });
+        }
+
     }
 }

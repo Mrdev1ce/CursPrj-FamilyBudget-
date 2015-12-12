@@ -7,9 +7,14 @@
 
     function categories($http) {
         this.getAllCategories = getAllCategories;
+        this.addOrEditCategory = addOrEditCategory;
 
         function getAllCategories() {
             return $http.get('/service/GetAllCategories');
+        }
+
+        function addOrEditCategory(category) {
+            return $http.post('/service/AddOrEditCategory', category);
         }
     }
 })();
