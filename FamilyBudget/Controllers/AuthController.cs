@@ -39,7 +39,7 @@ namespace FamilyBudget.Controllers
         {
             if (!string.IsNullOrWhiteSpace(user.Login) || !string.IsNullOrWhiteSpace(user.Password))
             {
-                //password = Security.GetHashString(password);
+                user.Password = Security.GetHashString(user.Password);
                 if (LoginModel.IsLoginSuccess(user.Login, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(user.Login, user.IsRemember);
