@@ -41,5 +41,17 @@ namespace FamilyBudget.Models
                 return command.ExecuteNonQuery() > 0;
             }
         }
+
+        public static bool RemoveCategory(int categoryId, string userLogin)
+        {
+            using (var connection = new SqlConnection(ConnectionStr))
+            {
+                var command = new SqlCommand("RemoveCategory", connection) { CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.AddWithValue("@userLogin", userLogin);
+                command.Parameters.AddWithValue("@categoryId", categoryId);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
     }
 }

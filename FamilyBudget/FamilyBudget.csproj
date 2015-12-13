@@ -147,6 +147,7 @@
     <Content Include="app\src\common\css\controls.css" />
     <Content Include="app\src\common\css\fonts.css" />
     <Content Include="app\src\common\img\photo.jpg" />
+    <Content Include="app\src\common\img\user_icon.png" />
     <Content Include="app\src\directives\btn-add\btn-add.css" />
     <Content Include="app\src\directives\btn-add\btn-add.html" />
     <Content Include="app\src\directives\btn-add\btn-add.js" />

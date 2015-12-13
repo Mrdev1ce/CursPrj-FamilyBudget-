@@ -200,5 +200,17 @@ namespace FamilyBudget.Controllers
             return Json(new { success = false });
         }
 
+        [HttpPost]
+        public JsonResult RemoveCategory(int? categoryId)
+        {
+            if (categoryId != null && categoryId > -1)
+            {
+                var userLogin = User.Identity.Name;
+                bool isSuccess = CategoriesManager.RemoveCategory((int)categoryId, userLogin);
+                return Json(new { success = isSuccess });
+            }
+            return Json(new { success = false });
+        }
+
     }
 }

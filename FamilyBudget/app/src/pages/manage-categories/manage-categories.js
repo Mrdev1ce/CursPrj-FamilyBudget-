@@ -34,16 +34,21 @@
                 category.Name = $scope.editing.value;
                 $scope.editing.value = '';
                 $scope.isEditing[index] = false;
+                Categories.addOrEditCategory(category);
             }
         };
 
         $scope.deleteCategory = function(index) {
             if (index >= 0 && index < $scope.categories.length) {
-                $scope.categories.splice(index, 1);
+                Categories.removeCategory($scope.categories[index].ID).then(function(response) {
+                    if (response.data && response.data.success) {
+                        $scope.categories.splice(index, 1);
+                    }
+                });
             }
         };
 
-        $scope.createNewCategory = function () {
+        $scope.startCreatingNewCategory = function () {
             if (!$scope.isCreating) {
                 init();
                 $scope.isCreating = true;
@@ -60,17 +65,7 @@
                     if (response.data && response.data.success) {
                         $scope.isCreating = false;
                         $scope.creating.value = '';
-                        Categories.getAllCategories().then(function(response) {
-                            var categories = response.data;
-                            if (categories) {
-                                $scope.categories.length = 0;
-                                if (_.isArray(categories)) {
-                                    _.forEach(categories, function(category) {
-                                        $scope.categories.push(category);
-                                    });
-                                }
-                            }
-                        });
+                        refreshCategories();
                     }
                 });   
             }
@@ -87,6 +82,20 @@
             if (_.isArray($scope.categories)) {
                 _.fill($scope.isEditing, false, 0, $scope.categories.length);
             }
+        }
+
+        function refreshCategories() {
+            Categories.getAllCategories().then(function (response) {
+                var categories = response.data;
+                if (categories) {
+                    $scope.categories.length = 0;
+                    if (_.isArray(categories)) {
+                        _.forEach(categories, function (category) {
+                            $scope.categories.push(category);
+                        });
+                    }
+                }
+            });
         }
     }
 })();
