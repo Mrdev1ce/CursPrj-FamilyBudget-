@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="operation in operations track by $index"
+                <tr ng-repeat="operation in operations track by $index | limitTo: 10"
                     ng-class="{'danger': !operation.Type, 'success': operation.Type}">
                     <td>{{$index+1}}</td>
                     <td>{{operation.WalletName}}</td>

@@ -65,6 +65,8 @@ namespace FamilyBudget.Controllers
             var userLogin = User.Identity.Name;
             if (data.NewPass != null && data.OldPass != null)
             {
+                data.OldPass = Security.GetHashString(data.OldPass);
+                data.NewPass = Security.GetHashString(data.NewPass);
                 var isSuccess = UsersManager.ChangeUserPassword(userLogin, data.OldPass, data.NewPass);
                 return Json(new {isSuccess = isSuccess});
             }
