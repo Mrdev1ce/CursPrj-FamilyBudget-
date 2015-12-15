@@ -10,8 +10,11 @@
         
         $scope.submit = function () {
             if ($scope.form.$valid) {
-                Wallets.addOrEditWallet($scope.wallet);
-                $state.go('home');
+                Wallets.addOrEditWallet($scope.wallet).then(function(response) {
+                   if (response.data && response.data.success) {
+                       $state.go('home');
+                   }
+                });
             }
         };
 

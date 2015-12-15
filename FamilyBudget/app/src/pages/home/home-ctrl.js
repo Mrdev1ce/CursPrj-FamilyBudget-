@@ -12,6 +12,7 @@
         $scope.operations = _.sortBy(_.forEach(operations.data, function (value) {
             value.Date = new Date(+dataRegex.exec(value.Date)[1]);
         }), 'Date').reverse();
+        $scope.limitOperations = 10;
 
         function calculateTotalOnAccounts(accounts) {
             var total = 0;

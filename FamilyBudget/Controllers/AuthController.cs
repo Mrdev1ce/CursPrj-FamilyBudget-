@@ -66,6 +66,7 @@ namespace FamilyBudget.Controllers
             {
                 if (UsersManager.GetUserInfo(user.Login) == null)
                 {
+                    user.Password = Security.GetHashString(user.Password);
                     UsersManager.AddUser(user);
                     return RedirectToAction("sp", "main");
                 }
