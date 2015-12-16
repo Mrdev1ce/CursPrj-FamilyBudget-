@@ -3,9 +3,9 @@
 
     angular.module('App').controller('ManageCategoriesCtrl', ManageCategoriesCtrl);
 
-    ManageCategoriesCtrl.$inject = ['$scope', 'categories', 'Categories'];
+    ManageCategoriesCtrl.$inject = ['$scope', 'categories', 'Categories', '$uibModal'];
 
-    function ManageCategoriesCtrl($scope, categories, Categories) {
+    function ManageCategoriesCtrl($scope, categories, Categories, $uibModal) {
         $scope.categories = categories.data;
         $scope.isEditing = [];
         $scope.isCreating = false;
@@ -40,10 +40,25 @@
 
         $scope.deleteCategory = function(index) {
             if (index >= 0 && index < $scope.categories.length) {
-                Categories.removeCategory($scope.categories[index].ID).then(function(response) {
-                    if (response.data && response.data.success) {
-                        $scope.categories.splice(index, 1);
+                var category = $scope.categories[index];
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: '../app/src/blocks/confirm-delete-modal/modal.html',
+                    controller: 'DeleteModalInstanceCtrl',
+                    size: 'sm',
+                    resolve: {
+                        item: function () {
+                            return category;
+                        }
                     }
+                });
+
+                modalInstance.result.then(function () {
+                    Categories.removeCategory(category.ID).then(function (response) {
+                        if (response.data && response.data.success) {
+                            $scope.categories.splice(index, 1);
+                        }
+                    });
                 });
             }
         };
